@@ -1,6 +1,4 @@
 import { createSignal } from 'solid-js'
-import solidLogo from './assets/solid.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { render } from 'solid-js/web';
 import { fetchGPTResponse } from './fetchGPTResponse';
@@ -36,12 +34,9 @@ function App() {
           <p class="bg-gray-100">{recipe().nutritionalInformations}</p>
         </>
       )}
-      {/* and a container where the GPT response will be rendered. */}
+      {}
     </div>
   )
 }
-
-const root = document.getElementById('root');
-render(() => <App />, root!);
 
 export default App
