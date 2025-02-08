@@ -5,7 +5,6 @@ import './App.css'
 import { render } from 'solid-js/web';
 import { fetchGPTResponse } from './fetchGPTResponse';
 
-
 function App() {
     async function getRecipe() {
         setLoading(true);

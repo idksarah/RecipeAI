@@ -1,11 +1,13 @@
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 export async function fetchGPTResponse (prompt: string) {
+  console.log(API_KEY)
     const response = await fetch ("https://api.openai.com/v1/chat/completions", {
       method: "POST",
-      headers: { "Authorization": `Bearer ${API_KEY}`},
+      headers: { "Authorization": `Bearer ${API_KEY}`, 
+      "Content-Type": "application/json"},
       body: JSON.stringify({
-        model: "gpt-40",
+        model: "gpt-4",
         messages: [
           {
             role: "system",
@@ -22,9 +24,6 @@ export async function fetchGPTResponse (prompt: string) {
             }`
           }
         ],
-        response_format: {
-          type: "json_object"
-        }
       }),
     });
   
