@@ -1,4 +1,4 @@
-import { fetchGPTResponse } from "./fetchGPTResponse";
+import { GPTRecipe } from "./GPTRecipe";
 import { createSignal } from 'solid-js'
 import showRecipe from "./Recipe";
 import './App.css'
@@ -8,9 +8,7 @@ let response
 function ChooseRecipe(){
     async function getRecipe() {
         setLoading(true);
-      
-        response = await fetchGPTResponse(ingredients());
-        console.log(response)
+        response = await GPTRecipe(ingredients());
         setRecipe(response);
         setLoading(false);
       }

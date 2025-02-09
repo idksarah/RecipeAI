@@ -1,10 +1,19 @@
 import { createSignal } from 'solid-js';
 import './App.css';
 import {tts} from './tts.ts';
+import { getUserAudio } from './getUserAudio.ts';
+import { GPTQuestion } from './GPTQuestion.ts';
 
 function readStep(index : number, steps : string[]){
     tts("Step" + (index + 1));
     tts(steps[index]);
+}
+
+async function getGPTResponse(){
+    let question: string = await getUserAudio();
+    console.log(question);
+    let gptResponse = await GPTQuestion(question)
+    console.log(gptResponse);
 }
 
 function showRecipe(json: string) {
@@ -50,6 +59,9 @@ function showRecipe(json: string) {
                 <button onClick={lastStep} disabled={currentStep() === 0}>Last Step</button>
                 <button onClick={repeat}>Repeat</button>
                 <button onClick={nextStep} disabled={currentStep() === steps.length - 1}>Next Step</button>
+            </div>
+            <div class="questions">
+                <button onClick={getGPTResponse}>Ask a question</button>
             </div>
         </>
     );

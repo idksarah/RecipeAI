@@ -1,6 +1,6 @@
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-export async function fetchGPTResponse (prompt: string) {
+export async function GPTQuestion (prompt: string) {
     const response = await fetch ("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: { "Authorization": `Bearer ${API_KEY}`, 
@@ -15,10 +15,10 @@ export async function fetchGPTResponse (prompt: string) {
           {
             role: "user",
             content:
-            `Generate a food recipe using: ${prompt}.
+            `Answer this question: ${prompt}.
             The response must be JSON in the format:
             {
-              preparationMethod: string
+              answer: string
             }`
           }
         ],

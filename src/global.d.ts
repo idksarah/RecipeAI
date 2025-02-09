@@ -1,7 +1,6 @@
-// global.d.ts
 declare global {
   interface Window {
-    SpeechRecognition: any; // or SpeechRecognitionConstructor if you want stricter typing
+    SpeechRecognition: any;
     webkitSpeechRecognition: any;
     SpeechGrammarList: any;
     webkitSpeechGrammarList : any;
