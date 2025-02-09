@@ -9,19 +9,13 @@ function readStep(index : number, steps : string[]){
     tts(steps[index]);
 }
 
-async function getGPTResponse(){
-    let question: string = await getUserAudio();
-    console.log(question);
-    let gptResponse = await GPTQuestion(question)
-    console.log(gptResponse);
-}
-
 function showRecipe(json: string) {
     let text: string = JSON.parse(json).preparationMethod;
 
     let steps: string[] = text.split(/\d+\.\s+/).filter(step => step.trim() !== '');
 
     const [currentStep, setCurrentStep] = createSignal(0); 
+    const [GPTResponse, setGPTResponse] = createSignal<string | null>(null);
 
     readStep(currentStep(), steps);
 
@@ -43,6 +37,12 @@ function showRecipe(json: string) {
         readStep((currentStep()), steps);
     }
 
+    const getGPTResponse = async () => {
+        let question: string = await getUserAudio();
+        let gptResponse = await GPTQuestion(question)
+        setGPTResponse(gptResponse.answer);
+    }
+
     return (
         <>
             <div class="steps">
@@ -62,6 +62,11 @@ function showRecipe(json: string) {
             </div>
             <div class="questions">
                 <button onClick={getGPTResponse}>Ask a question</button>
+                {GPTResponse() && (
+                    <div class="gpt-response">
+                        <p><strong>GPT Response:</strong> {GPTResponse()}</p>
+                    </div>
+                )}
             </div>
         </>
     );

@@ -15,7 +15,7 @@ export async function GPTQuestion (prompt: string) {
           {
             role: "user",
             content:
-            `Answer this question: ${prompt}.
+            `Answer this question under 30 words: ${prompt}.
             The response must be JSON in the format:
             {
               answer: string
@@ -26,7 +26,5 @@ export async function GPTQuestion (prompt: string) {
     });
     const data = await response.json();
     const assistantMessage = data.choices[0]?.message.content;
-  
-    console.log(assistantMessage);
     return JSON.parse(assistantMessage);
   }
