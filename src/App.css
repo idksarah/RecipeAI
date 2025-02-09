@@ -5,23 +5,8 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
+.step.highlight {
+  background-color: rgb(147, 133, 93);
+  border-radius: 5px;
   padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.solid:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

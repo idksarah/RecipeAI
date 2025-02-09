@@ -24,18 +24,8 @@ export async function fetchGPTResponse (prompt: string) {
         ],
       }),
     });
-    if (!response.ok) {
-      console.error("API request failed:", await response.text());
-      throw new Error(`API request failed with status ${response.status}`);
-    }
-  
     const data = await response.json();
     const assistantMessage = data.choices[0]?.message.content;
-  
-    if (!assistantMessage) {
-      console.error("No message content found in the response.");
-      throw new Error("Response content is missing.");
-    }
   
     console.log(assistantMessage);
     return JSON.parse(assistantMessage);

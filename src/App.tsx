@@ -1,41 +1,17 @@
-import { createSignal } from 'solid-js'
+
 import './App.css'
 import { render } from 'solid-js/web';
 import { fetchGPTResponse } from './fetchGPTResponse';
+import ChooseRecipe from './ChooseRecipe';
+import showRecipe from './Recipe';
+import tts from './tts'
 
 function App() {
-    async function getRecipe() {
-        setLoading(true);
-      
-        const response = await fetchGPTResponse(ingredients());
-        setRecipe(response);
-        setLoading(false);
-      }
-
-    const [ingredients, setIngredients] = createSignal("");
-    const [recipe, setRecipe] = createSignal({
-      preparationMethod: "",
-      nutritionalInformations: "",
-    });
-    const [loading, setLoading] = createSignal(false);
-
-  return (
-    <div class="bg-white shadow-md rounded-lg p-8 m-auto max-w-lg">
-      <textarea
-        value={ingredients()}
-        onChange={(ev) => setIngredients(ev.target.value)}
-      ></textarea>
-      <button onClick={getRecipe} disabled={loading()}>
-        Get
-      </button>
-      {!loading() && recipe().preparationMethod && (
-        <>
-          <p class="bg-gray-100">{recipe().preparationMethod}</p>
-          <p class="bg-gray-100">{recipe().nutritionalInformations}</p>
-        </>
-      )}
-      {}
-    </div>
+  return(
+    // ChooseRecipe()
+    showRecipe(`{
+        "preparationMethod": "1. Soak 300g of tteok (Korean rice cakes) in warm water for about 30 minutes to soften them. 2. In a saucepan, combine 3 cups of water, 2 tablespoons of gochujang (Korean chili paste), 2 tablespoons of sugar, and 1 tablespoon of soy sauce. Stir well and bring to a boil over medium heat. 3. Once boiling, add the soaked tteok to the saucepan and cook for about 10 minutes, stirring occasionally until the tteok become soft and chewy. 4. Add 100g of fish cakes and 1/2 cup of diced onion to the saucepan and continue cooking for another 5 minutes. 5. If desired, add 1/2 cup of sliced green onions and sesame seeds for garnish before serving. 6. Serve hot and enjoy your homemade tteokbokki!"
+    }`)
   )
 }
 
