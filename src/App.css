@@ -15,7 +15,6 @@ html, body {
     align-items: center;
 }
 
-/* App container */
 .app-container {
     width: 100vw;
     height: 100vh;
@@ -24,7 +23,6 @@ html, body {
     align-items: center;
 }
 
-/* Recipe input */
 .recipe-input {
     text-align: center;
     width: 50%;
@@ -49,7 +47,6 @@ html, body {
     outline: none;
 }
 
-/* Buttons */
 .btn {
     margin-left: 1rem;
     margin-right: 1rem;
@@ -67,7 +64,6 @@ html, body {
     background: #ff7f50;
 }
 
-/* Recipe steps */
 .recipe-container {
     width: 60%;
     padding: 2rem;
@@ -91,7 +87,6 @@ html, body {
     font-weight: bold;
 }
 
-/* GPT response */
 .gpt-response {
     margin: 1rem;
     width: 60%;
