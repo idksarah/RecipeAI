@@ -12,8 +12,8 @@ Good food, made easy.
 
 # RecipeAI in Action
 
-![alt text](./assets/image-1.png)
-![alt text](./assets/image.png)
+![alt text](home.png)
+![alt text](recipe.png)
 
 ## Usage
 
