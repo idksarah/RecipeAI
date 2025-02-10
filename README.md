@@ -1,28 +1,30 @@
+# RecipeAI - Your Personal Cooking Assistant
+
+RecipeAI — your AI-powered sous-chef that guides you step-by-step through recipes, reads instructions out loud, and even answers your cooking questions—hands-free
+
+🚀 Why RecipeAI?
+
+- Step-by-step guidance with voice assistance 🔊
+- Instant answers to any cooking question ❓
+- Hands-free experience so you can focus on cooking 🍳
+
+Good food, made easy.
+
+![alt text](image-1.png)
+![alt text](image.png)
+
 ## Usage
 
 ```bash
 $ npm install # or pnpm install or yarn install
+$ npm run dev # run code locally
 ```
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+## Tools/Languages Used
+- Typescript
+- SolidJS
+- TTS
+- Speech to text
+- ChatGPT API
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm run dev`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
-
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-## Deployment
-
-Learn more about deploying your application with the [documentations](https://vite.dev/guide/static-deploy.html)
+Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
