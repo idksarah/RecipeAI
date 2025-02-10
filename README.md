@@ -10,8 +10,10 @@ RecipeAI — your AI-powered sous-chef that guides you step-by-step through reci
 
 Good food, made easy.
 
-![alt text](image-1.png)
-![alt text](image.png)
+# RecipeAI in Action
+
+![alt text](./assets/image-1.png)
+![alt text](./assets/image.png)
 
 ## Usage
 
@@ -26,5 +28,3 @@ $ npm run dev # run code locally
 - TTS
 - Speech to text
 - ChatGPT API
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
