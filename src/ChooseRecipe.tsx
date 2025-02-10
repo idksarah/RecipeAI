@@ -1,49 +1,56 @@
 import { GPTRecipe } from "./GPTRecipe";
-import { createSignal } from 'solid-js'
-import showRecipe from "./Recipe";
-import './App.css'
+import { createSignal } from 'solid-js';
+import Recipe from "./Recipe";
+import './App.css';
 
-let response
-
-function ChooseRecipe(){
-    async function getRecipe() {
-        setLoading(true);
-        response = await GPTRecipe(ingredients());
-        setRecipe(response);
-        setLoading(false);
-      }
-
+function ChooseRecipe() {
     const [ingredients, setIngredients] = createSignal("");
     const [recipe, setRecipe] = createSignal({
-      preparationMethod: "",
-      nutritionalInformations: "",
+        preparationMethod: "",
+        nutritionalInformations: "",
+        dishName: ""
     });
     const [loading, setLoading] = createSignal(false);
+    const [showingRecipe, setShowingRecipe] = createSignal(false);
 
-  return (
-    <>
-    <p>What's in your fridge?</p>
-    <div class="bg-white shadow-md rounded-lg p-8 m-auto max-w-lg">
-      <textarea
-        value={ingredients()}
-        onChange={(ev) => setIngredients(ev.target.value)}
-      ></textarea>
-      <button onClick={getRecipe} disabled={loading()}>
-        Get
-      </button>
-      {!loading() && recipe().preparationMethod && (
+    async function getRecipe() {
+        setLoading(true);
+        let response = await GPTRecipe(ingredients());
+        setRecipe(response);
+        setLoading(false);
+    }
+
+    return (
         <>
-          <p class="bg-gray-100">{recipe().preparationMethod}</p>
-          <p class="bg-gray-100">{recipe().nutritionalInformations}</p>
+            {!showingRecipe() ? ( 
+                <>
+                  <div class="container">
+                    <p class="whatinyofridge">What's in your fridge?</p>
+                    <p class="cooksomethin">Let's cook something!</p>
+                      <div class="recipeInput">
+                        <textarea
+                              value={ingredients()}
+                              onChange={(ev) => setIngredients(ev.target.value)}
+                          ></textarea>
+                          <button onClick={getRecipe} disabled={loading()}>
+                              Get
+                          </button>
+                      </div>
+                        {!loading() && recipe().preparationMethod && (
+                            <div class="goToRecipe">
+                                <p class="bg-gray-100">Let's make <span class="dishName">{recipe().dishName}</span>!</p>
+                                <div class="buttons">
+                                    <button class="btn" onClick={() => setShowingRecipe(true)}>Next</button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </>
+            ) : ( 
+                <Recipe json={JSON.stringify(recipe())} />
+            )}
         </>
-      )}
-      {}
-    </div>
-    <div class="buttons">
-        <button onClick={() => showRecipe(recipe().preparationMethod)}>Next</button>
-    </div>
-    </>
-  )
+    );
 }
 
-export default ChooseRecipe
+export default ChooseRecipe;

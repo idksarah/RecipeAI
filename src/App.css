@@ -1,12 +1,183 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #fdfdfd;
+}
+
+html, body {
+  height: fit-content;
+  padding: 7em;
+    font-family: 'Arial', sans-serif;
+    background: #fdfdfd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* App container */
+.app-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Recipe input */
+.recipe-input {
+    text-align: center;
+    width: 50%;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-input h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.recipe-input textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Buttons */
+.btn {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+    margin-bottom: 1em;
+}
+
+.btn:hover {
+    background: #ff7f50;
+}
+
+/* Recipe steps */
+.recipe-container {
+    width: 60%;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.steps {
+    margin-bottom: 2rem;
+}
+
+.step {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.2rem;
 }
 
 .step.highlight {
-  background-color: rgb(147, 133, 93);
-  border-radius: 5px;
-  padding: 1.5em;
+    background: #fffae5;
+    font-weight: bold;
+}
+
+/* GPT response */
+.gpt-response {
+    margin: 1rem;
+    width: 60%;
+    padding: 10px;
+    background: #ff7f50;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.questions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p{
+  color: black;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+.recipeInput{
+  display: flex;
+  width: fit-content;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.goToRecipe{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  height: fit-content;
+}
+
+textarea {
+  margin: 2em;
+}
+
+.dishName {
+  color: #ff7f50;
+}
+
+.bottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.steps {
+  margin-top: 20em;
+}
+
+.steps .gray-text {
+  color: gray;
+}
+
+.whatinyofridge{
+  color: #ff7f50;
+  font-size: 7em;
+  font-weight: 800;
+}
+
+.cooksomethin {
+  margin-top: -1em;
+  font-size: 2em;
+  font-weight: 800;
 }

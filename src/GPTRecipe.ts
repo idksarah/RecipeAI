@@ -18,6 +18,7 @@ export async function GPTRecipe (prompt: string) {
             `Generate a food recipe using: ${prompt}.
             The response must be JSON in the format:
             {
+              dishName: string
               preparationMethod: string
             }`
           }
